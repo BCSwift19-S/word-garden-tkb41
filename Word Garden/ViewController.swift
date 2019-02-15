@@ -48,7 +48,6 @@ class ViewController: UIViewController {
         userGuessLabel.text = revealedWord
     }
     func guessALetter(){
-        formatUserGuessLabel()
         guessCount += 1
         
         let currentLetterGuessed = guessedLetterField.text!
@@ -78,9 +77,9 @@ class ViewController: UIViewController {
 //                guess = "guess"
             
             guessCountLabel.text = "You've made \(guessCount) guesses"
-            
-            
         }
+        
+        formatUserGuessLabel()
     }
     @IBAction func guessLetterFieldChanged(_ sender: UITextField) {
         if let letterGuessed = guessedLetterField.text?.last {
@@ -98,10 +97,17 @@ class ViewController: UIViewController {
         updateUIAfterGuess()
 
     }
-    
-    @IBAction func guessLetterButtonPressed(_ sender: UIButton) {
+    @IBAction func guessLetterKeyPressed(_ sender: Any) {
         guessALetter()
         updateUIAfterGuess()
+        
+        
+    }
+    
+    
+    
+    @IBAction func guessLetterButtonPressed(_ sender: UIButton) {
+
     }
     
     @IBAction func playAgainButtonPressed(_ sender: UIButton) {
